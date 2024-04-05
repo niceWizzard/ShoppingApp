@@ -38,9 +38,9 @@ public class Sidebar extends JPanel {
         label.setForeground(new Color(0xFFE6FC));
         add(label, "wrap 36");
 
-        add(new SidebarLink("Cart"), "grow");
-        add(new SidebarLink("Profile"), "grow");
-        add(new SidebarLink("Home"), "grow");
+        add(new SidebarLink("Cart", Main.NAV_CART), "grow");
+        add(new SidebarLink("Profile", Main.NAV_PROFILE), "grow");
+        add(new SidebarLink("Home", Main.NAV_HOME), "grow");
 
 
 
@@ -50,10 +50,12 @@ public class Sidebar extends JPanel {
 
 
 class SidebarLink extends JButton {
-    public SidebarLink(String text) {
+
+    public SidebarLink(String text, String route) {
         setText(text);
         setFont(FontSize.x16b);
         setOpaque(false);
         setPreferredSize(new Dimension(1080, 36));
+        addActionListener(e -> Main.navigation.navigateTo(route));
     }
 }
