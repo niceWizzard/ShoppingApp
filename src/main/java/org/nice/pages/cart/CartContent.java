@@ -1,5 +1,6 @@
 package org.nice.pages.cart;
 
+import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
@@ -15,10 +16,17 @@ import java.util.Objects;
 public class CartContent extends JPanel {
 
     private final Map<String, CartItem> cartItemsMap = new HashMap<>();
+    private final Disposable subscription;
+
+    @Override
+    public void removeNotify() {
+        super.removeNotify();
+        subscription.dispose();
+    }
+
     public CartContent() {
         setLayout(new MigLayout("wrap", "grow, shrink"));
-        CartService.getInstance ().getCartObservable().subscribe(list -> {
-            removeAll();
+        subscription = CartService.getInstance ().getCartObservable().subscribe(list -> {
             removeAll();
             if(list.isEmpty()) {
                 add(new JLabel("Your cart is empty."), "align center center");
@@ -41,7 +49,6 @@ public class CartContent extends JPanel {
 
 class CartItem extends JPanel{
     private final ProductItemModel model;
-
 
     public CartItem(ProductItemModel model) {
         this.model = model;
@@ -124,6 +131,8 @@ class CartItem extends JPanel{
 
         add(southContainer, "dock south, grow");
 
+        //      =====
+        add(new JLabel(String.valueOf(model.price())), "gapx 24");
 
 
     }

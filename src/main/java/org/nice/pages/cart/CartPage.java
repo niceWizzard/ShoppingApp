@@ -1,5 +1,6 @@
 package org.nice.pages.cart;
 
+import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
@@ -10,11 +11,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CartPage extends Routeable {
+    private final Disposable subscription;
     private JLabel cartTotal;
+
+    @Override
+    public void removeNotify() {
+        super.removeNotify();
+        subscription.dispose();
+    }
 
     public CartPage() {
         init();
-        CartService.getInstance().getCartObservable().subscribe(cartList  -> {
+        subscription = CartService.getInstance().getCartObservable().subscribe(cartList  -> {
             var totalPrice = 0f;
             for(var p : cartList.values()) {
                 totalPrice += p.getTotalPrice();

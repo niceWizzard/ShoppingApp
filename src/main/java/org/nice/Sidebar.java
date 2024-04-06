@@ -2,6 +2,7 @@ package org.nice;
 
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
@@ -15,11 +16,18 @@ import java.util.Map;
 public class Sidebar extends JPanel {
 
 
+    private final Disposable subscription;
     private SidebarLink cartLink= new SidebarLink("Cart", Main.NAV_CART);
+
+    @Override
+    public void removeNotify() {
+        super.removeNotify();
+        subscription.dispose();
+    }
     public Sidebar() {
         init();
         initComponents();
-        CartService.getInstance().getCartObservable().map(Map::values).subscribe(items -> {
+        subscription = CartService.getInstance().getCartObservable().map(Map::values).subscribe(items -> {
             if(items.isEmpty()) {
                 cartLink.setText("Cart");
                 return ;
