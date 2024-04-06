@@ -1,5 +1,8 @@
 package org.nice;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import net.miginfocom.swing.MigLayout;
 import org.nice.navigation.NavRoute;
 import org.nice.navigation.NavigationPanel;
@@ -7,6 +10,8 @@ import org.nice.pages.cart.CartPage;
 import org.nice.pages.home.HomePage;
 import org.nice.pages.ProfilePage;
 import org.nice.services.ServiceManager;
+
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,6 +32,7 @@ public class Main extends JFrame {
     }
 
     private void init() {
+        FlatMacLightLaf.setup();
         var s = new ServiceManager();
         var root=new JPanel(new MigLayout());
         add(root);

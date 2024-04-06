@@ -1,7 +1,9 @@
 package org.nice.pages.cart;
 
+import com.formdev.flatlaf.ui.FlatLineBorder;
 import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
+import org.nice.components.MainButton;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
 import org.nice.models.ProductItemModel;
@@ -55,7 +57,7 @@ class CartItem extends JPanel{
         setLayout(new MigLayout("gap 12", "grow"));
         setBorder(
                 BorderFactory.createCompoundBorder(
-                    BorderFactory.createLineBorder(new Color(0x20003), 2, true),
+                    new FlatLineBorder(new Insets(1,1,1,1), UIManager.getColor("Component.borderColor")),
                     Padding.byParts(12, 8)
                 )
         );
@@ -105,7 +107,8 @@ class CartItem extends JPanel{
         var quantityContainer = new JPanel(new MigLayout());
         var quantityLabel = new JLabel(String.valueOf(model.quantity()));
         var decreaseBtn = new JButton("-");
-        var increaseBtn = new JButton("+");
+        var increaseBtn = new MainButton("+");
+
         quantityContainer.add(decreaseBtn);
         quantityContainer.add(quantityLabel);
         quantityContainer.add(increaseBtn);

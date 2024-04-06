@@ -1,6 +1,8 @@
 package org.nice.pages.home;
 
+import com.formdev.flatlaf.ui.FlatLineBorder;
 import net.miginfocom.swing.MigLayout;
+import org.nice.components.MainButton;
 import org.nice.constants.FontSize;
 import org.nice.models.ProductItemModel;
 import org.nice.services.CartService;
@@ -17,7 +19,12 @@ public class ProductItem extends JPanel {
         this.model = model;
         setLayout(new MigLayout("wrap, align center top"));
         setPreferredSize(new Dimension(160, 180));
-        setBorder(BorderFactory.createLineBorder(new Color(0x02000), 2, true));
+        setBorder(
+                new FlatLineBorder(
+                        new Insets(1,1,1,1),
+                        UIManager.getColor("Component.borderColor")
+                )
+        );
 
         var title = new JLabel(model.title());
         title.setFont(FontSize.x18b);
@@ -34,7 +41,8 @@ public class ProductItem extends JPanel {
         var price = new JLabel(STR."P \{model.price()}");
         add(price, "al right");
 
-        var addToCart = new JButton("Add to Cart");
+        var addToCart = new MainButton("Add to Cart");
+
         add(addToCart, "grow");
 
         addToCart.addActionListener(e -> {

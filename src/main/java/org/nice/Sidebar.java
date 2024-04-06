@@ -82,10 +82,13 @@ class SidebarLink extends JButton {
 
     public SidebarLink(String text, String route) {
         setText(text);
-        setFont(FontSize.x16b);
+        setFont(FontSize.x16);
         setOpaque(false);
         setPreferredSize(new Dimension(1080, 36));
         addActionListener(e -> Main.navigation.navigateTo(route));
+
+
+
     }
 
 }
