@@ -1,14 +1,12 @@
 package org.nice;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import net.miginfocom.swing.MigLayout;
 import org.nice.navigation.NavRoute;
 import org.nice.navigation.NavigationPanel;
 import org.nice.pages.cart.CartPage;
 import org.nice.pages.home.HomePage;
-import org.nice.pages.ProfilePage;
+import org.nice.pages.profile.ProfilePage;
 import org.nice.services.NavigationService;
 import org.nice.services.ServiceManager;
 
