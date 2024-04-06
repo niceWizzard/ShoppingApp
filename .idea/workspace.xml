@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/CartPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/ProfilePage.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added Pages">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/ProductItemModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/ProductItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/products/black_shoes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/products/blue_shoes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/products/crocs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/products/red_shoe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/products/vomero.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/HomePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +31,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2egDKVwQJk7ToSxd2ID5nqYtjpO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -44,7 +48,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/richard/Documents/JavaProjects/NavigationFramework/NavigationFramework.jar",
+    "last_opened_file_path": "C:/Users/richard/Documents/JavaProjects/ShoppingApp/src/main/resources/images/products",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,6 +63,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.nice" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\richard\Documents\JavaProjects\ShoppingApp\src\main\resources\images\products" />
     </key>
   </component>
   <component name="RunManager">
@@ -78,7 +85,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712317267652</updated>
-      <workItem from="1712317268968" duration="3634000" />
+      <workItem from="1712317268968" duration="4266000" />
+      <workItem from="1712378959809" duration="2737000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -88,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712320064700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Pages">
+      <option name="closed" value="true" />
+      <created>1712320940375</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712320940375</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +112,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="Added Pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Pages" />
   </component>
 </project>
