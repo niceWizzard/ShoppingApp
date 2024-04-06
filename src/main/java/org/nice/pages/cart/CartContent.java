@@ -91,6 +91,12 @@ class CartItem extends JPanel{
         northContainer.add(title, "align left");
 
         var clearBtn = new JButton("Clear");
+        clearBtn.setBackground(
+                UIManager.getColor("Component.error.focusedBorderColor")
+        );
+        clearBtn.setForeground(
+                UIManager.getColor("Button.default.foreground")
+        );
         northContainer.add(clearBtn, "align right");
 
         add(northContainer, "dock north");
