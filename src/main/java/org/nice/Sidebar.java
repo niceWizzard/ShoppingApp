@@ -7,11 +7,13 @@ import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
 import org.nice.services.CartService;
+import org.nice.services.NavigationService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 public class Sidebar extends JPanel {
 
@@ -87,7 +89,16 @@ class SidebarLink extends JButton {
         setPreferredSize(new Dimension(1080, 36));
         addActionListener(e -> Main.navigation.navigateTo(route));
 
+        NavigationService.getInstance().nav.onNavigationChange.addListener(active -> {
+            if(Objects.equals(active.route(), route)) {
+                setBackground(UIManager.getColor("Button.default.background"));
+                setForeground(UIManager.getColor("Button.default.foreground"));
+            } else{
+                setBackground(UIManager.getColor("Button.background"));
+                setForeground(UIManager.getColor("Button.foreground"));
 
+            }
+        });
 
     }
 

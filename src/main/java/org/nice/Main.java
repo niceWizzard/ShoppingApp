@@ -9,6 +9,7 @@ import org.nice.navigation.NavigationPanel;
 import org.nice.pages.cart.CartPage;
 import org.nice.pages.home.HomePage;
 import org.nice.pages.ProfilePage;
+import org.nice.services.NavigationService;
 import org.nice.services.ServiceManager;
 
 
@@ -45,12 +46,15 @@ public class Main extends JFrame {
     }
 
     private void initComponents(JPanel root) {
-        var sidebar = new Sidebar();
         var mainContent = new NavigationPanel(new NavRoute[]{
                 new NavRoute(new CartPage(), NAV_CART),
                 new NavRoute(new HomePage(), NAV_HOME),
                 new NavRoute(new ProfilePage(), NAV_PROFILE)
         });
+        new NavigationService(mainContent);
+
+        var sidebar = new Sidebar();
+
         navigation = mainContent;
         root.add(mainContent, "dock center");
         root.add(sidebar, "dock west");
