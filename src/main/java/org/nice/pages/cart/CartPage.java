@@ -17,7 +17,7 @@ public class CartPage extends Routeable {
         CartService.getInstance().getCartObservable().subscribe(cartList  -> {
             var totalPrice = 0f;
             for(var p : cartList.values()) {
-                totalPrice += p.price();
+                totalPrice += p.getTotalPrice();
             }
 
             cartTotal.setText(STR."Total: P\{totalPrice}");

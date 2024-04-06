@@ -10,4 +10,7 @@ public record ProductItemModel(String title, int quantity,float price, String im
         return new ProductItemModel(title, quantity-1, price,imagePath, id);
     }
 
+    public float getTotalPrice() {
+        return price * quantity;
+    }
 }
