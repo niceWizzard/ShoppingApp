@@ -70,7 +70,25 @@ class CartItem extends JPanel{
         title.setFont(FontSize.x16b);
         add(title, "dock north,  gapx 20");
 
+        var quantityContainer = new JPanel(new MigLayout());
+
         var quantityLabel = new JLabel(String.valueOf(model.quantity()));
-        add(quantityLabel);
+        var decreaseBtn = new JButton("-");
+        var increaseBtn = new JButton("+");
+        quantityContainer.add(decreaseBtn);
+        quantityContainer.add(quantityLabel);
+        quantityContainer.add(increaseBtn);
+
+        add(quantityContainer);
+
+        increaseBtn.addActionListener(e -> {
+            CartService.getInstance().add(model);
+        });
+
+        decreaseBtn.addActionListener(e -> {
+            CartService.getInstance().remove(model.id());
+        });
+
+
     }
 }

@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Made cart sidebar link have number">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added ability to add quantity to each products">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/models/ProductItemModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/ProductItemModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/ProductItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/ProductItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/CartService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712317267652</updated>
       <workItem from="1712317268968" duration="4266000" />
-      <workItem from="1712378959809" duration="9927000" />
+      <workItem from="1712378959809" duration="10542000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -128,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712382964583</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added ability to add quantity to each products">
+      <option name="closed" value="true" />
+      <created>1712394071296</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712394071296</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +142,7 @@
     <MESSAGE value="Added Products to Homepage" />
     <MESSAGE value="Made the CartService and added id field to ProductItemModel" />
     <MESSAGE value="Made cart sidebar link have number" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made cart sidebar link have number" />
+    <MESSAGE value="Added ability to add quantity to each products" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ability to add quantity to each products" />
   </component>
 </project>
