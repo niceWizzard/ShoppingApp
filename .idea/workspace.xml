@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Changed the look of some components">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/NavigationService.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Made the sidebar links change color when active">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +34,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -87,7 +84,7 @@
       <updated>1712317267652</updated>
       <workItem from="1712317268968" duration="4266000" />
       <workItem from="1712378959809" duration="14851000" />
-      <workItem from="1712404518890" duration="3016000" />
+      <workItem from="1712404518890" duration="3651000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -201,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712406317999</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Made the sidebar links change color when active">
+      <option name="closed" value="true" />
+      <created>1712407714910</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712407714910</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +225,7 @@
     <MESSAGE value="Added clearBtn, totalPrice of item, and confirmation for clearing" />
     <MESSAGE value="Added subscription disposing" />
     <MESSAGE value="Changed the look of some components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the look of some components" />
+    <MESSAGE value="Made the sidebar links change color when active" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the sidebar links change color when active" />
   </component>
 </project>

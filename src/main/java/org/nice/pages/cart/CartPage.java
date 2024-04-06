@@ -1,6 +1,7 @@
 package org.nice.pages.cart;
 
 import com.formdev.flatlaf.ui.FlatBorder;
+import com.formdev.flatlaf.ui.FlatDropShadowBorder;
 import com.formdev.flatlaf.ui.FlatLineBorder;
 import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
@@ -48,7 +49,19 @@ public class CartPage extends Routeable {
         cartTotal = new JLabel("Total: P0.0");
         upperContainer.add(cartTotal, "al right, wrap");
         upperContainer.setBorder(
-                BorderFactory.createMatteBorder(0,0, 1, 0, new Color(0x00023)));
+//                BorderFactory.createMatteBorder(
+//                        0,0, 1, 0,
+//                        UIManager.getColor("Component.borderColor")
+//                )
+                BorderFactory.createCompoundBorder(
+                        new FlatDropShadowBorder(
+                                UIManager.getColor("Component.borderColor"),
+                                new Insets(0,0,15,0),
+                                0.05f
+                        ),
+                        Padding.byParts(12, 6)
+                )
+        );
 
         add(upperContainer, "north, grow, wrap");
 
