@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Add buttons to change the item quantity">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/models/ProductItemModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/ProductItemModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
-    </list>
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added clearBtn, totalPrice of item, and confirmation for clearing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712317267652</updated>
       <workItem from="1712317268968" duration="4266000" />
-      <workItem from="1712378959809" duration="10719000" />
+      <workItem from="1712378959809" duration="12471000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -145,7 +142,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712394628931</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed the totalPrice not updating">
+      <option name="closed" value="true" />
+      <created>1712394820806</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712394820806</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added clearBtn, totalPrice of item, and confirmation for clearing">
+      <option name="closed" value="true" />
+      <created>1712396511029</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712396511029</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +173,8 @@
     <MESSAGE value="Added ability to add quantity to each products" />
     <MESSAGE value="Made the remove function actually work" />
     <MESSAGE value="Add buttons to change the item quantity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add buttons to change the item quantity" />
+    <MESSAGE value="Fixed the totalPrice not updating" />
+    <MESSAGE value="Added clearBtn, totalPrice of item, and confirmation for clearing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added clearBtn, totalPrice of item, and confirmation for clearing" />
   </component>
 </project>

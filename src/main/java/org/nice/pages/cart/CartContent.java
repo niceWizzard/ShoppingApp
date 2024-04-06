@@ -19,6 +19,7 @@ public class CartContent extends JPanel {
         setLayout(new MigLayout("wrap", "grow, shrink"));
         CartService.getInstance ().getCartObservable().subscribe(list -> {
             removeAll();
+            removeAll();
             if(list.isEmpty()) {
                 add(new JLabel("Your cart is empty."), "align center center");
             }
@@ -44,7 +45,7 @@ class CartItem extends JPanel{
 
     public CartItem(ProductItemModel model) {
         this.model = model;
-        setLayout(new MigLayout("gap 12"));
+        setLayout(new MigLayout("gap 12", "grow"));
         setBorder(
                 BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(new Color(0x20003), 2, true),
@@ -57,6 +58,15 @@ class CartItem extends JPanel{
 
     }
 
+    public boolean clearConfirmation() {
+        return JOptionPane.showConfirmDialog(
+                getParent(),
+                STR."Are you sure you want to clear the item: \{model.title()}",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION
+        ) == 0;
+    }
+
     private void initComponents() {
         var image = new ImageIcon(Objects.requireNonNull(getClass().getResource(STR."/images/products/\{model.imagePath()}")));
         image.setImage(
@@ -65,13 +75,27 @@ class CartItem extends JPanel{
         var imageContainer = new JLabel(image);
         imageContainer.setPreferredSize(new Dimension(120,120));
         add(imageContainer, "dock west");
-
+//-------
+        var northContainer = new JPanel(new MigLayout("", "grow"));
         var title = new JLabel(model.title());
         title.setFont(FontSize.x16b);
-        add(title, "dock north,  gapx 20");
+        northContainer.add(title, "align left");
 
+        var clearBtn = new JButton("Clear");
+        northContainer.add(clearBtn, "align right");
+
+        add(northContainer, "dock north");
+
+        clearBtn.addActionListener(_ -> {
+            if(!clearConfirmation()) {
+                return;
+            }
+            CartService.getInstance().removeAll(model.id());
+        });
+
+
+//        -------
         var quantityContainer = new JPanel(new MigLayout());
-
         var quantityLabel = new JLabel(String.valueOf(model.quantity()));
         var decreaseBtn = new JButton("-");
         var increaseBtn = new JButton("+");
@@ -79,15 +103,27 @@ class CartItem extends JPanel{
         quantityContainer.add(quantityLabel);
         quantityContainer.add(increaseBtn);
 
-        add(quantityContainer);
+        var southContainer = new JPanel(new MigLayout("", "grow"));
+        southContainer.add(quantityContainer, "align left");
 
         increaseBtn.addActionListener(e -> {
             CartService.getInstance().add(model);
         });
 
         decreaseBtn.addActionListener(e -> {
+            if(model.quantity() == 1 && !clearConfirmation()) {
+                return;
+            }
             CartService.getInstance().remove(model.id());
         });
+
+//        -------
+        var totalPriceLabel = new JLabel(String.valueOf(model.getTotalPrice()));
+        totalPriceLabel.setFont(FontSize.x16b);
+        southContainer.add(totalPriceLabel, "align right");
+
+        add(southContainer, "dock south, grow");
+
 
 
     }

@@ -51,6 +51,9 @@ public class CartService {
     }
 
 
-
-
+    public void removeAll(String id) {
+        assert itemMap != null;
+        itemMap.remove(id);
+        cartItemsMap.onNext(itemMap);
+    }
 }
