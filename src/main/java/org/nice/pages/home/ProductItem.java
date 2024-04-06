@@ -38,7 +38,7 @@ public class ProductItem extends JPanel {
         add(addToCart, "grow");
 
         addToCart.addActionListener(e -> {
-            CartService.getInstance().addToCart(model);
+            CartService.getInstance().add(model);
         });
 
     }

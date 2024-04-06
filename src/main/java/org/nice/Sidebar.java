@@ -10,6 +10,7 @@ import org.nice.services.CartService;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Sidebar extends JPanel {
 
@@ -18,12 +19,16 @@ public class Sidebar extends JPanel {
     public Sidebar() {
         init();
         initComponents();
-        CartService.getInstance().getCartObservable().map(v -> v.size()).subscribe(v -> {
-            if(v == 0) {
+        CartService.getInstance().getCartObservable().map(Map::values).subscribe(items -> {
+            if(items.isEmpty()) {
                 cartLink.setText("Cart");
                 return ;
             }
-           cartLink.setText(STR."Cart (\{v.toString()})");
+            var total = 0;
+            for(var v : items) {
+                total += v.quantity();
+            }
+           cartLink.setText(STR."Cart (\{total})");
 
         });
     }

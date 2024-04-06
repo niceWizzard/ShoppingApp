@@ -3,7 +3,7 @@ package org.nice;
 import net.miginfocom.swing.MigLayout;
 import org.nice.navigation.NavRoute;
 import org.nice.navigation.NavigationPanel;
-import org.nice.pages.CartPage;
+import org.nice.pages.cart.CartPage;
 import org.nice.pages.home.HomePage;
 import org.nice.pages.ProfilePage;
 import org.nice.services.ServiceManager;
@@ -41,8 +41,8 @@ public class Main extends JFrame {
     private void initComponents(JPanel root) {
         var sidebar = new Sidebar();
         var mainContent = new NavigationPanel(new NavRoute[]{
-                new NavRoute(new HomePage(), NAV_HOME),
                 new NavRoute(new CartPage(), NAV_CART),
+                new NavRoute(new HomePage(), NAV_HOME),
                 new NavRoute(new ProfilePage(), NAV_PROFILE)
         });
         navigation = mainContent;
