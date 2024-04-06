@@ -7,15 +7,18 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
+import org.nice.models.ProductItemModel;
 import org.nice.navigation.Routeable;
 import org.nice.services.CartService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Collection;
 
 public class CartPage extends Routeable {
     private final Disposable subscription;
     private JLabel cartTotal;
+    private JButton checkoutButton;
 
     @Override
     public void removeNotify() {
@@ -26,8 +29,10 @@ public class CartPage extends Routeable {
     public CartPage() {
         init();
         subscription = CartService.getInstance().getCartObservable().subscribe(cartList  -> {
+            var values = cartList.values();
+            checkoutButton.setEnabled(!values.isEmpty());
             var totalPrice = 0f;
-            for(var p : cartList.values()) {
+            for(var p : values) {
                 totalPrice += p.getTotalPrice();
             }
 
@@ -46,13 +51,8 @@ public class CartPage extends Routeable {
         cartTitle.setFont(FontSize.x24b);
         upperContainer.add(cartTitle, "al left");
 
-        cartTotal = new JLabel("Total: P0.0");
-        upperContainer.add(cartTotal, "al right, wrap");
+
         upperContainer.setBorder(
-//                BorderFactory.createMatteBorder(
-//                        0,0, 1, 0,
-//                        UIManager.getColor("Component.borderColor")
-//                )
                 BorderFactory.createCompoundBorder(
                         new FlatDropShadowBorder(
                                 UIManager.getColor("Component.borderColor"),
@@ -69,6 +69,31 @@ public class CartPage extends Routeable {
         scrollPane.setBorder(null);
         scrollPane.setPreferredSize(new Dimension(1080,1080));
         add(scrollPane, "grow");
+
+        var southContainer = new JPanel(new MigLayout("align right center", ""));
+
+        cartTotal = new JLabel("Total: P0.0");
+        southContainer.add(cartTotal, "al right, grow 0");
+
+        checkoutButton = new JButton("Checkout");
+        checkoutButton.setBorder(
+                BorderFactory.createCompoundBorder(
+                        checkoutButton.getBorder(),
+                        Padding.byParts(12,6)
+                )
+        );
+        southContainer.setBorder(
+                BorderFactory.createCompoundBorder(
+                        new FlatDropShadowBorder(
+                                UIManager.getColor("Component.borderColor"),
+                                new Insets(15,0,0,0),
+                                0.05f
+                        ),
+                        Padding.byParts(12, 6)
+                )
+        );
+        southContainer.add(checkoutButton, "al right");
+        add(southContainer, "dock south");
     }
 
     @Override
