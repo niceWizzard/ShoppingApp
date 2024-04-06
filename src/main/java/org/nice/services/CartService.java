@@ -12,31 +12,38 @@ public class CartService {
 
     public static CartService getInstance(){return instance; }
 
-    private BehaviorSubject<Map<String,ProductItemModel>> cartList =
+    private BehaviorSubject<Map<String,ProductItemModel>> cartItemsMap =
             BehaviorSubject
                     .createDefault(new HashMap<>());
-    private final Map<String,ProductItemModel> list = cartList.getValue();
+    private final Map<String,ProductItemModel> itemMap = cartItemsMap.getValue();
 
     public Observable<Map<String,ProductItemModel>> getCartObservable() {
-        return Observable.wrap(cartList);
+        return Observable.wrap(cartItemsMap);
     }
 
     public void add(ProductItemModel item) {
-        var existing = list.get(item.id());
+        var existing = itemMap.get(item.id());
         if(existing != null) {
-            list.replace(item.id(), existing.incrementQuantity());
+            itemMap.replace(item.id(), existing.incrementQuantity());
         } else{
-            list.put(item.id(), item);
+            itemMap.put(item.id(), item);
         }
-        cartList.onNext(list);
+        cartItemsMap.onNext(itemMap);
     }
 
     public void remove(String id) {
-        var existingProduct = list.get(id);
-        if(existingProduct != null) {
-            existingProduct.decrementQuantity();
-            cartList.onNext(list);
+        assert itemMap != null;
+        var existingProduct = itemMap.get(id);
+        if (existingProduct == null) {
+            return;
         }
+        var newProduct = existingProduct.decrementQuantity();
+        if(newProduct.quantity() == 0) {
+            itemMap.remove(newProduct.id());
+        } else {
+            itemMap.replace(newProduct.id(), newProduct);
+        }
+        cartItemsMap.onNext(itemMap);
     }
 
     public CartService() {
