@@ -3,6 +3,7 @@ package org.nice.pages.home;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.models.ProductItemModel;
+import org.nice.services.CartService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,6 +36,10 @@ public class ProductItem extends JPanel {
 
         var addToCart = new JButton("Add to Cart");
         add(addToCart, "grow");
+
+        addToCart.addActionListener(e -> {
+            CartService.getInstance().addToCart(model);
+        });
 
     }
 }

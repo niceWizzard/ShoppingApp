@@ -1,16 +1,31 @@
 package org.nice;
 
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.Observable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
+import org.nice.services.CartService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Sidebar extends JPanel {
+
+
+    private SidebarLink cartLink= new SidebarLink("Cart", Main.NAV_CART);
     public Sidebar() {
         init();
         initComponents();
+        CartService.getInstance().getCartObservable().map(v -> v.size()).subscribe(v -> {
+            if(v == 0) {
+                cartLink.setText("Cart");
+                return ;
+            }
+           cartLink.setText(STR."Cart (\{v.toString()})");
+
+        });
     }
 
     @Override
@@ -38,7 +53,8 @@ public class Sidebar extends JPanel {
         label.setForeground(new Color(0xFFE6FC));
         add(label, "wrap 36");
 
-        add(new SidebarLink("Cart", Main.NAV_CART), "grow");
+
+        add(cartLink, "grow");
         add(new SidebarLink("Profile", Main.NAV_PROFILE), "grow");
         add(new SidebarLink("Home", Main.NAV_HOME), "grow");
 
@@ -58,4 +74,5 @@ class SidebarLink extends JButton {
         setPreferredSize(new Dimension(1080, 36));
         addActionListener(e -> Main.navigation.navigateTo(route));
     }
+
 }
