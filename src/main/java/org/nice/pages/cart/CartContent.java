@@ -58,7 +58,7 @@ class CartItem extends JPanel{
 
     }
 
-    public boolean clearConfirmation() {
+    private boolean clearConfirmation() {
         return JOptionPane.showConfirmDialog(
                 getParent(),
                 STR."Are you sure you want to clear the item: \{model.title()}",
