@@ -8,24 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DynamicListView<T> extends JPanel {
-    private final Collection<T> items;
 
+    private final Collection<T> items;
 
     private final Map<String, JComponent> itemViewMap = new HashMap<>();
 
-    private final Function<Item<JComponent>, T> viewBuilder ;
-    private final Function<String,T> keyBuilder;
+    private final FunctionArg1<Item<JComponent>, T> viewBuilder ;
+    private final FunctionArg1<String,T> keyBuilder;
     private final Item<JComponent> defaultView;
+    private LayoutManager providedLayout;
 
-    public JScrollPane getScrollPane() {
-        return scrollPane;
-    }
-
-    public JPanel getRoot() {
-        return root;
-    }
-    private final JScrollPane scrollPane;
-    private final JPanel root;
+    public  JScrollPane scrollPane;
 
 
     /**
@@ -44,7 +37,7 @@ public class DynamicListView<T> extends JPanel {
                         key,
                         returnedItem.item()
                 );
-                root.add(returnedItem.item(), returnedItem.addOptions().orElse(""));
+                add(returnedItem.item(), returnedItem.addOptions().orElse(""));
             }
         }
 
@@ -58,51 +51,64 @@ public class DynamicListView<T> extends JPanel {
 
         for(var itemKey : toRemove) {
             var view = itemViewMap.get(itemKey);
-            root.remove(view);
+            remove(view);
             itemViewMap.remove(itemKey);
         }
 
         if(items.isEmpty()) {
-            root.add(defaultView.item(), defaultView.addOptions().orElse(""));
+            add(defaultView.item(), defaultView.addOptions().orElse(""));
         } else {
-            root.remove(defaultView.item());
+            remove(defaultView.item());
         }
-        root.revalidate();
-        root.repaint();
+        revalidate();
+        repaint();
 
     }
 
-
     public DynamicListView(
             Collection<T> items,
-            Function<String, T> keyBuilder,
-            Function<Item<JComponent>, T> viewBuilder,
-            Item<JComponent> defaultView,
-            LayoutManager layout
+            FunctionArg1<String, T> keyBuilder,
+            FunctionArg1<Item<JComponent>, T> viewBuilder,
+            Item<JComponent> defaultView
     ) {
         this.defaultView = defaultView;
         this.items = items;
         this.keyBuilder = keyBuilder;
         this.viewBuilder = viewBuilder;
 
-        root = new JPanel();
-        this.root.setLayout(layout);
-        scrollPane = new JScrollPane(root);
-        add(scrollPane);
+        scrollPane = new JScrollPane(this);
+        init();
+    }
 
+    public DynamicListView(
+            Collection<T> items,
+            FunctionArg1<String, T> keyBuilder,
+            FunctionArg1<Item<JComponent>, T> viewBuilder,
+            Item<JComponent> defaultView,
+            LayoutManager layout
+    ) {
+        this.providedLayout = layout;
+        this.defaultView = defaultView;
+        this.items = items;
+        this.keyBuilder = keyBuilder;
+        this.viewBuilder = viewBuilder;
+
+        this.setLayout(this.providedLayout);
+        scrollPane = new JScrollPane(this);
         init();
     }
 
     private void init() {
+
         for(var item : items) {
             var id = keyBuilder.call(item);
             var returnedItem = viewBuilder.call(item);
             var itemView = returnedItem.item();
             itemViewMap.put(id, itemView);
-            root.add(itemView, returnedItem.addOptions().orElse(""));
+            add(itemView, returnedItem.addOptions().orElse(""));
         }
         if(items.isEmpty()) {
-            root.add(defaultView.item(), defaultView.addOptions().orElse(""));
+            add(defaultView.item(), defaultView.addOptions().orElse(""));
         }
     }
 }

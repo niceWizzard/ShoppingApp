@@ -20,18 +20,19 @@ public class CartContent extends JPanel {
     private final ArrayList<ProductItemModel> items = new ArrayList<>();
     private final Disposable subscription;
 
-    private final DynamicListView<ProductItemModel> listView = new DynamicListView<ProductItemModel>(
+    private final DynamicListView<ProductItemModel> listView = new DynamicListView<>(
             items,
             ProductItemModel::id,
             (item) -> {
                 var view = new CartItem(item);
-                return new Item<>(view, Optional.of("grow, shrink, al center"));
+                return new Item<>(view, Optional.of("grow, al center"));
             },
             new Item<>(
                     new JLabel("Your cart is empty."),
                     Optional.of("align center center")
             ),
-            new MigLayout("wrap", "grow, shrink")
+            new MigLayout("wrap", "grow")
+
     );
 
     @Override
@@ -41,7 +42,8 @@ public class CartContent extends JPanel {
     }
 
     public CartContent() {
-        add(listView);
+        setLayout(new MigLayout("", "grow, shrink"));
+        add(listView,"grow");
         subscription = CartService.getInstance ().getCartObservable().subscribe(list -> {
 
             items.clear();
@@ -82,7 +84,7 @@ class CartItem extends JPanel{
 
     private boolean clearConfirmation() {
         return JOptionPane.showConfirmDialog(
-                getParent(),
+                null,
                 "Are you sure you want to clear the item: " +model.title(),
                 "Confirm",
                 JOptionPane.YES_NO_OPTION
@@ -155,8 +157,6 @@ class CartItem extends JPanel{
 
         //      =====
         add(new JLabel(String.valueOf(model.price())), "gapx 24");
-
-
 
         this.subscription = CartService.getInstance().getCartObservable()
                 .map(v -> v.get(model.id()))

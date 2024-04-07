@@ -1,5 +1,5 @@
 package org.nice.listview;
 
-public interface Function<T, K> {
-    public T call(K arg);
+public interface Function<T> {
+    public T call();
 }

@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Changed project to zulu-17 jdk">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/Function.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/Item.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Used the custom DynamicListView to show the cart contents">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/FunctionArg1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/listview/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/Function.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -121,7 +121,7 @@
       <workItem from="1712490600380" duration="5227000" />
       <workItem from="1712496384201" duration="553000" />
       <workItem from="1712497583574" duration="202000" />
-      <workItem from="1712499163200" duration="354000" />
+      <workItem from="1712499163200" duration="3285000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -283,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712490705562</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Used the custom DynamicListView to show the cart contents">
+      <option name="closed" value="true" />
+      <created>1712499675188</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1712499675188</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +327,8 @@
     <MESSAGE value="Added non functional checkout button" />
     <MESSAGE value="Added non functional profile page" />
     <MESSAGE value="Changed project to zulu-17 jdk" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed project to zulu-17 jdk" />
+    <MESSAGE value="Used the custom DynamicListView to show the cart contents" />
+    <option name="LAST_COMMIT_MESSAGE" value="Used the custom DynamicListView to show the cart contents" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
