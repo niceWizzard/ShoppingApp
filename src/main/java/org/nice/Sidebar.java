@@ -11,6 +11,7 @@ import org.nice.services.NavigationService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +39,7 @@ public class Sidebar extends JPanel {
             for(var v : items) {
                 total += v.quantity();
             }
-           cartLink.setText(STR."Cart (\{total})");
+           cartLink.setText(MessageFormat.format("Cart ({0})", total));
 
         });
     }

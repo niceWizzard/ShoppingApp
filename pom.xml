@@ -19,13 +19,7 @@
             <artifactId>miglayout</artifactId>
             <version>3.7.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.formdev/flatlaf -->
-        <dependency>
-            <groupId>com.formdev</groupId>
-            <artifactId>flatlaf</artifactId>
-            <version>3.0</version>
-            <scope>runtime</scope>
-        </dependency>
+
 
 
     </dependencies>

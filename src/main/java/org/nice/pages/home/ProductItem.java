@@ -31,14 +31,14 @@ public class ProductItem extends JPanel {
         add(title, "grow 0");
 
 
-        var i = new ImageIcon(Objects.requireNonNull(getClass().getResource(STR."/images/products/\{model.imagePath()}")));
+        var i = new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/products/"+model.imagePath())));
         var scaled = i.getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH);
         i.setImage(scaled);
         var img = new JLabel(i);
         img.setMaximumSize(new Dimension(120   ,120));
         add(img, "al center");
 
-        var price = new JLabel(STR."P \{model.price()}");
+        var price = new JLabel("P " +model.price());
         add(price, "al right");
 
         var addToCart = new MainButton("Add to Cart");

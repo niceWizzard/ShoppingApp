@@ -12,12 +12,11 @@ import org.nice.services.CartService;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class CartContent extends JPanel {
 
-    private final Map<String, CartItem> cartItemsMap = new HashMap<>();
+    private final HashMap<String, CartItem> cartItemsMap = new HashMap<>();
     private final Disposable subscription;
 
     @Override
@@ -70,14 +69,14 @@ class CartItem extends JPanel{
     private boolean clearConfirmation() {
         return JOptionPane.showConfirmDialog(
                 getParent(),
-                STR."Are you sure you want to clear the item: \{model.title()}",
+                "Are you sure you want to clear the item: " +model.title(),
                 "Confirm",
                 JOptionPane.YES_NO_OPTION
         ) == 0;
     }
 
     private void initComponents() {
-        var image = new ImageIcon(Objects.requireNonNull(getClass().getResource(STR."/images/products/\{model.imagePath()}")));
+        var image = new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/products/" +model.imagePath())));
         image.setImage(
                 image.getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH)
         );
@@ -101,7 +100,7 @@ class CartItem extends JPanel{
 
         add(northContainer, "dock north");
 
-        clearBtn.addActionListener(_ -> {
+        clearBtn.addActionListener(a -> {
             if(!clearConfirmation()) {
                 return;
             }

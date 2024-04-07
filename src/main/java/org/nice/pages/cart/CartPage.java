@@ -1,19 +1,15 @@
 package org.nice.pages.cart;
 
-import com.formdev.flatlaf.ui.FlatBorder;
 import com.formdev.flatlaf.ui.FlatDropShadowBorder;
-import com.formdev.flatlaf.ui.FlatLineBorder;
 import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
-import org.nice.models.ProductItemModel;
 import org.nice.navigation.Routeable;
 import org.nice.services.CartService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Collection;
 
 public class CartPage extends Routeable {
     private final Disposable subscription;
@@ -36,7 +32,7 @@ public class CartPage extends Routeable {
                 totalPrice += p.getTotalPrice();
             }
 
-            cartTotal.setText(STR."Total: P\{totalPrice}");
+            cartTotal.setText("Total: P" +totalPrice);
 
         });
     }
