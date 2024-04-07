@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Used the custom DynamicListView to show the cart contents">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/FunctionArg1.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/listview/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/CartService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15527344&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.30229884&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
@@ -121,7 +119,8 @@
       <workItem from="1712490600380" duration="5227000" />
       <workItem from="1712496384201" duration="553000" />
       <workItem from="1712497583574" duration="202000" />
-      <workItem from="1712499163200" duration="3285000" />
+      <workItem from="1712499163200" duration="3493000" />
+      <workItem from="1712527685163" duration="479000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -291,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712499675188</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fixed root/parenting issue of the ListView">
+      <option name="closed" value="true" />
+      <created>1712502455895</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1712502455895</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +335,8 @@
     <MESSAGE value="Added non functional profile page" />
     <MESSAGE value="Changed project to zulu-17 jdk" />
     <MESSAGE value="Used the custom DynamicListView to show the cart contents" />
-    <option name="LAST_COMMIT_MESSAGE" value="Used the custom DynamicListView to show the cart contents" />
+    <MESSAGE value="Fixed root/parenting issue of the ListView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed root/parenting issue of the ListView" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

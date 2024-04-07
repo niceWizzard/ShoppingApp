@@ -15,6 +15,7 @@ public class CartPage extends Routeable {
     private final Disposable subscription;
     private JLabel cartTotal;
     private JButton checkoutButton;
+    private JButton clearAllBtn;
 
     @Override
     public void removeNotify() {
@@ -27,11 +28,11 @@ public class CartPage extends Routeable {
         subscription = CartService.getInstance().getCartObservable().subscribe(cartList  -> {
             var values = cartList.values();
             checkoutButton.setEnabled(!values.isEmpty());
+            clearAllBtn.setVisible(!values.isEmpty());
             var totalPrice = 0f;
             for(var p : values) {
                 totalPrice += p.getTotalPrice();
             }
-
             cartTotal.setText("Total: P" +totalPrice);
 
         });
@@ -46,6 +47,16 @@ public class CartPage extends Routeable {
         var cartTitle = new JLabel("Your Cart");
         cartTitle.setFont(FontSize.x24b);
         upperContainer.add(cartTitle, "al left");
+
+        clearAllBtn = new JButton("Clear All");
+        clearAllBtn.addActionListener(e -> {
+            var r = JOptionPane.showConfirmDialog(null, "Are you sure you want to empty your cart?", "Confirm",JOptionPane.YES_NO_OPTION);
+            if(r == 0  ) {
+                CartService.getInstance().clearAll();
+            }
+        });
+        upperContainer.add(clearAllBtn, "al right");
+
 
 
         upperContainer.setBorder(

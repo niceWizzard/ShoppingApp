@@ -31,6 +31,12 @@ public class CartService {
         cartItemsMap.onNext(itemMap);
     }
 
+    public void clearAll() {
+        assert itemMap != null;
+        itemMap.clear();
+        cartItemsMap.onNext(itemMap);
+    }
+
     public void remove(String id) {
         assert itemMap != null;
         var existingProduct = itemMap.get(id);
