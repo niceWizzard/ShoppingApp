@@ -6,18 +6,33 @@ import net.miginfocom.swing.MigLayout;
 import org.nice.components.MainButton;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
+import org.nice.listview.DynamicListView;
+import org.nice.listview.Item;
 import org.nice.models.ProductItemModel;
 import org.nice.services.CartService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.*;
 
 public class CartContent extends JPanel {
 
-    private final HashMap<String, CartItem> cartItemsMap = new HashMap<>();
+    private final ArrayList<ProductItemModel> items = new ArrayList<>();
     private final Disposable subscription;
+
+    private final DynamicListView<ProductItemModel> listView = new DynamicListView<ProductItemModel>(
+            items,
+            ProductItemModel::id,
+            (item) -> {
+                var view = new CartItem(item);
+                return new Item<>(view, Optional.of("grow, shrink, al center"));
+            },
+            new Item<>(
+                    new JLabel("Your cart is empty."),
+                    Optional.of("align center center")
+            ),
+            new MigLayout("wrap", "grow, shrink")
+    );
 
     @Override
     public void removeNotify() {
@@ -26,33 +41,32 @@ public class CartContent extends JPanel {
     }
 
     public CartContent() {
-        setLayout(new MigLayout("wrap", "grow, shrink"));
+        add(listView);
         subscription = CartService.getInstance ().getCartObservable().subscribe(list -> {
-            removeAll();
-            if(list.isEmpty()) {
-                add(new JLabel("Your cart is empty."), "align center center");
-            }
-            else {
-                for(var product : list.values()) {
-                    var i = new CartItem(product);
-                    add(i, "grow, shrink, al center");
-                    cartItemsMap.put(product.id(), i);
-                }
-            }
 
-            repaint();
-            revalidate();
-
-
+            items.clear();
+            items.addAll(list.values());
+            listView.update();
         });
     }
 }
 
 class CartItem extends JPanel{
-    private final ProductItemModel model;
+    private ProductItemModel model;
+    private JLabel quantityLabel;
+    private JLabel totalPriceLabel;
+    private Disposable subscription;
+
+    @Override
+    public void removeNotify() {
+        super.removeNotify();
+        subscription.dispose();
+    }
+
 
     public CartItem(ProductItemModel model) {
         this.model = model;
+
         setLayout(new MigLayout("gap 12", "grow"));
         setBorder(
                 BorderFactory.createCompoundBorder(
@@ -110,7 +124,7 @@ class CartItem extends JPanel{
 
 //        -------
         var quantityContainer = new JPanel(new MigLayout());
-        var quantityLabel = new JLabel(String.valueOf(model.quantity()));
+        quantityLabel = new JLabel(String.valueOf(model.quantity()));
         var decreaseBtn = new JButton("-");
         var increaseBtn = new MainButton("+");
 
@@ -133,7 +147,7 @@ class CartItem extends JPanel{
         });
 
 //        -------
-        var totalPriceLabel = new JLabel(String.valueOf(model.getTotalPrice()));
+        totalPriceLabel = new JLabel(String.valueOf(model.getTotalPrice()));
         totalPriceLabel.setFont(FontSize.x16b);
         southContainer.add(totalPriceLabel, "align right");
 
@@ -143,5 +157,13 @@ class CartItem extends JPanel{
         add(new JLabel(String.valueOf(model.price())), "gapx 24");
 
 
+
+        this.subscription = CartService.getInstance().getCartObservable()
+                .map(v -> v.get(model.id()))
+                .subscribe(v -> {
+                    this.model = v;
+                    this.quantityLabel.setText(String.valueOf(model.quantity()));
+                    this.totalPriceLabel.setText(String.valueOf(model.getTotalPrice()));
+                });
     }
 }

@@ -10,17 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Changed project to zulu-17 jdk">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ShoppingApp_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/NavigationFramework.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/flatlaf-3.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/Function.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Sidebar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/ProductItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/home/ProductItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flatlaf-3.4.1.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -59,7 +54,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/richard/Documents/JavaProjects/NavigationFramework/NavigationFramework.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/richard/Documents/JavaProjects/ShoppingApp/src/main/java/org/nice&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -79,6 +74,7 @@
       <recent name="org.nice" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\richard\Documents\JavaProjects\ShoppingApp\src\main\java\org\nice" />
       <recent name="C:\Users\richard\Documents\JavaProjects\ShoppingApp\src\main\resources" />
       <recent name="C:\Users\richard\Documents\JavaProjects\ShoppingApp\src\main\resources\images\products" />
     </key>
@@ -122,6 +118,10 @@
       <workItem from="1712404518890" duration="9149000" />
       <workItem from="1712415790873" duration="156000" />
       <workItem from="1712416144854" duration="1562000" />
+      <workItem from="1712490600380" duration="5227000" />
+      <workItem from="1712496384201" duration="553000" />
+      <workItem from="1712497583574" duration="202000" />
+      <workItem from="1712499163200" duration="354000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -275,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712415618225</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Changed project to zulu-17 jdk">
+      <option name="closed" value="true" />
+      <created>1712490705562</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712490705562</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +327,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="io.reactivex.rxjava3.exceptions.OnErrorNotImplementedException" package="io.reactivex.rxjava3.exceptions" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
