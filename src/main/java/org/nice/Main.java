@@ -4,6 +4,7 @@ import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import net.miginfocom.swing.MigLayout;
 import org.nice.navigation.NavRoute;
 import org.nice.navigation.NavigationPanel;
+import org.nice.pages.addressmanage.ManageAddressPage;
 import org.nice.pages.cart.CartPage;
 import org.nice.pages.home.HomePage;
 import org.nice.pages.profile.ProfilePage;
@@ -23,6 +24,7 @@ public class Main extends JFrame {
     public static final String NAV_HOME = "home";
     public static final String NAV_PROFILE = "profile";
     public static final String NAV_CART = "cart";
+    public static final String NAV_MANAGE_ADDRESSES = "address/edit";
 
     public static void main(String[] args) {
         new Main();
@@ -52,11 +54,12 @@ public class Main extends JFrame {
         var mainContent = new NavigationPanel(new NavRoute[]{
                 new NavRoute(new CartPage(), NAV_CART),
                 new NavRoute(new HomePage(), NAV_HOME),
-                new NavRoute(new ProfilePage(), NAV_PROFILE)
+                new NavRoute(new ProfilePage(), NAV_PROFILE),
+                new NavRoute(new ManageAddressPage(), NAV_MANAGE_ADDRESSES)
         });
         new NavigationService(mainContent);
 
-        var sidebar = new Sidebar();
+        var sidebar = new Sidebar(root);
 
         navigation = mainContent;
         root.add(mainContent, "dock center");

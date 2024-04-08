@@ -7,6 +7,7 @@ import org.nice.Main;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
 import org.nice.navigation.Routeable;
+import org.nice.services.NavigationService;
 import org.nice.services.UserService;
 
 import javax.swing.*;
@@ -54,6 +55,9 @@ public class ProfilePage extends Routeable {
         northContainer.add(new AddressPanel(), "grow, wrap");
 
         var addressesBtn = new JButton("Manage Addresses");
+        addressesBtn.addActionListener(v -> {
+            NavigationService.getInstance().nav.navigateTo(Main.NAV_MANAGE_ADDRESSES);
+        });
         northContainer.add(addressesBtn, "al right");
 
         root.add(northContainer, "dock north, grow, wrap");
