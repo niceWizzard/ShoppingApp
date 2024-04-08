@@ -42,12 +42,14 @@ public class ManageAddressPage extends Routeable {
     public static class AddressPanel extends JPanel {
 
         private final Disposable subscription;
+        private final Disposable subscription2;
         private Address item;
 
         @Override
         public void removeNotify() {
             super.removeNotify();
             subscription.dispose();
+            subscription2.dispose();
         }
 
         public AddressPanel(Address givenAddress) {
@@ -76,12 +78,20 @@ public class ManageAddressPage extends Routeable {
                 this.item = v;
             });
 
+
+
             var buttonContainer = new JPanel(new MigLayout("align right", ""));
             var editBtn = new JButton("Edit");
             var deleteButton = new JButton("Remove");
+            var assignBtn = new JButton("Set main");
+            buttonContainer.add(assignBtn, "align left");
             buttonContainer.add(editBtn, "align right");
             buttonContainer.add(deleteButton, "align right");
             add(buttonContainer, "align right, grow,dock south");
+
+            assignBtn.addActionListener(v -> {
+                AddressService.getInstance().setMainAddress(this.item);
+            });
 
             editBtn.addActionListener(v -> {
                 new CreateAddressModal(Optional.of(this.item));
@@ -89,6 +99,10 @@ public class ManageAddressPage extends Routeable {
 
             deleteButton.addActionListener(v -> {
                 AddressService.getInstance().removeAddress(givenAddress.id());
+            });
+
+            this.subscription2 = AddressService.getInstance().getMainAddressObservable().subscribe(v -> {
+                assignBtn.setEnabled(!v.id().equals(this.item.id()));
             });
 
             Arrays.stream(getComponents()).filter(v -> !(v instanceof JButton)).forEach(v -> v.setFont(FontSize.x16));

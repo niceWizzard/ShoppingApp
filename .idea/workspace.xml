@@ -9,7 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Moved the Address to its own service and added more info popup for CreateAddressModal">
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Fixed the bug of edit not reflecting changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/AddressService.java" afterDir="false" />
     </list>
@@ -122,7 +123,7 @@
       <workItem from="1712527685163" duration="7294000" />
       <workItem from="1712551605204" duration="3363000" />
       <workItem from="1712558118181" duration="3140000" />
-      <workItem from="1712564844546" duration="1495000" />
+      <workItem from="1712564844546" duration="2246000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -428,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712566114530</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Fixed the bug of edit not reflecting changes">
+      <option name="closed" value="true" />
+      <created>1712566683401</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1712566683401</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +455,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added subscription disposing" />
     <MESSAGE value="Changed the look of some components" />
     <MESSAGE value="Made the sidebar links change color when active" />
     <MESSAGE value="Changed Cart Pages botborder to drop shadow" />
@@ -471,7 +479,8 @@
     <MESSAGE value="Added CreateAddressModal" />
     <MESSAGE value="Made the AddressViewList to not shrink" />
     <MESSAGE value="Moved the Address to its own service and added more info popup for CreateAddressModal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved the Address to its own service and added more info popup for CreateAddressModal" />
+    <MESSAGE value="Fixed the bug of edit not reflecting changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the bug of edit not reflecting changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

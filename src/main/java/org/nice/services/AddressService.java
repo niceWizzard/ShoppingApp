@@ -84,4 +84,11 @@ public class AddressService {
         }
     }
 
+    public void setMainAddress(Address address)  {
+        if(addressesList.stream().filter(v -> v.id().equals(address.id())).findAny().isEmpty()) {
+            System.err.println("Address is not on the list!");
+        }
+        mainAddress.onNext(address);
+    }
+
 }
