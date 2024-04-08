@@ -6,5 +6,6 @@ public class ServiceManager {
     public ServiceManager() {
         new CartService();
         new UserService();
+        new AddressService();
     }
 }

@@ -4,12 +4,14 @@ import net.miginfocom.swing.MigLayout;
 import org.nice.Main;
 import org.nice.components.MainButton;
 import org.nice.models.Address;
+import org.nice.services.AddressService;
 import org.nice.services.UserService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 public class CreateAddressModal extends JDialog {
     public CreateAddressModal(Optional<Address> address) {
@@ -51,13 +53,25 @@ public class CreateAddressModal extends JDialog {
         var btn = new MainButton("Save");
         add(btn, "growx");
         btn.addActionListener(v -> {
-            String phoneText = phoneField.getText();
+            String phoneText = phoneField.getText().trim();
             String nameText = nameField.getText();
             String addressText = addressField.getText();
             if(
                 phoneText.isBlank() ||
                 nameText.isBlank() || addressText.isBlank()) {
                 JOptionPane.showMessageDialog(Main.frame, "Please fill in all fields.");
+                return;
+            }
+            if(nameText.length() > 25) {
+                JOptionPane.showMessageDialog(Main.frame, "Name too long!.");
+                return;
+            }
+            if(!Pattern.compile("^09\\d{9}$").matcher(phoneText).matches()) {
+                JOptionPane.showMessageDialog(Main.frame, "Invalid phone number!.");
+                return;
+            }
+            if(addressText.length() > 50) {
+                JOptionPane.showMessageDialog(Main.frame, "Address too long!.");
                 return;
             }
             var id = address.isPresent() ? address.get().id() : UUID.randomUUID();
@@ -67,7 +81,7 @@ public class CreateAddressModal extends JDialog {
                     addressText,
                     id.toString()
             );
-            var service = UserService.getInstance().getCurrentUser();
+            final var service = AddressService.getInstance();
             if (address.isPresent()) {
                 service.updateAddress(add);
             } else {

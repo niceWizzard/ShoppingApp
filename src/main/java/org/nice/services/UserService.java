@@ -21,9 +21,7 @@ public class UserService {
         currentUser.setUsername(n);
     }
 
-    public Observable<Address> getMainAddressObservable() {
-        return Observable.wrap(currentUser.getMainAddress());
-    }
+
 
     public UserService() {
         instance = this;

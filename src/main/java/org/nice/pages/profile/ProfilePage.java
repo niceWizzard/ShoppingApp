@@ -7,6 +7,7 @@ import org.nice.Main;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
 import org.nice.navigation.Routeable;
+import org.nice.services.AddressService;
 import org.nice.services.NavigationService;
 import org.nice.services.UserService;
 
@@ -151,7 +152,7 @@ class AddressPanel extends  JPanel{
         add(phoneNumber);
         add(address);
 
-        subscription = UserService.getInstance().getMainAddressObservable().subscribe(
+        subscription = AddressService.getInstance().getMainAddressObservable().subscribe(
                 v -> {
                     name.setText(v.name());
                     phoneNumber.setText(v.phoneNumber());

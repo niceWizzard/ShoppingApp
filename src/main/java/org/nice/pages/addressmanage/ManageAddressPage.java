@@ -9,6 +9,7 @@ import org.nice.listview.DynamicListView;
 import org.nice.listview.Item;
 import org.nice.models.Address;
 import org.nice.navigation.Routeable;
+import org.nice.services.AddressService;
 import org.nice.services.NavigationService;
 import org.nice.services.UserService;
 
@@ -27,7 +28,7 @@ public class ManageAddressPage extends Routeable {
     }
 
     public DynamicListView<Address> addressDynamicListView = new DynamicListView<>(
-            UserService.getInstance().getCurrentUser().getAddressCollection(),
+            AddressService.getInstance().getAddressCollection(),
             Address::id,
             (item) -> {
                 var view = new AddressPanel(item);
@@ -65,7 +66,7 @@ public class ManageAddressPage extends Routeable {
             add(addressLabel);
             add(addressField, "wrap");
 
-            this.subscription = UserService.getInstance().getCurrentUser().getOnAddressUpdated().subscribe(v -> {
+            this.subscription = AddressService.getInstance().getOnAddressUpdated().subscribe(v -> {
                 if(v.id().equals(item.id())) {
                     nameField.setText(v.name());
                     phoneField.setText(v.phoneNumber());
@@ -85,7 +86,7 @@ public class ManageAddressPage extends Routeable {
             });
 
             deleteButton.addActionListener(v -> {
-                UserService.getInstance().getCurrentUser().removeAddress(item.id());
+                AddressService.getInstance().removeAddress(item.id());
             });
 
             Arrays.stream(getComponents()).filter(v -> !(v instanceof JButton)).forEach(v -> v.setFont(FontSize.x16));
@@ -95,7 +96,7 @@ public class ManageAddressPage extends Routeable {
     public ManageAddressPage() {
         setLayout(new MigLayout("", "grow", "grow"));
 
-        this.subscription = UserService.getInstance().getCurrentUser().getAddresses().subscribe(v -> {
+        this.subscription = AddressService.getInstance().getAddresses().subscribe(v -> {
             addressDynamicListView.update();
         });
 
