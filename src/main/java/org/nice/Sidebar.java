@@ -1,35 +1,43 @@
 package org.nice;
 
-import io.reactivex.rxjava3.annotations.NonNull;
-import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
+import org.nice.navigation.NavRoute;
 import org.nice.services.CartService;
 import org.nice.services.NavigationService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
 public class Sidebar extends JPanel {
 
 
-    private final Disposable subscription;
+    private Disposable subscription;
+    private final JPanel owner;
     private SidebarLink cartLink= new SidebarLink("Cart", Main.NAV_CART);
 
     @Override
     public void removeNotify() {
         super.removeNotify();
         subscription.dispose();
+        NavigationService.getInstance().nav.onNavigationChange.removeListener(this::onNavChange);
+
     }
-    public Sidebar() {
+
+
+    public Sidebar(JPanel root) {
+        this.owner = root;
         init();
         initComponents();
+         subscribes();
+    }
+
+    private void subscribes() {
         subscription = CartService.getInstance().getCartObservable().map(Map::values).subscribe(items -> {
             if(items.isEmpty()) {
                 cartLink.setText("Cart");
@@ -40,8 +48,24 @@ public class Sidebar extends JPanel {
                 total += v.quantity();
             }
            cartLink.setText(MessageFormat.format("Cart ({0})", total));
-
         });
+        NavigationService.getInstance().nav.onNavigationChange.addListener(this::onNavChange);
+    }
+
+    private void onNavChange(NavRoute navRoute) {
+        var shouldBeVisible = !navRoute.route().equals(Main.NAV_MANAGE_ADDRESSES);
+        if(shouldBeVisible && !isVisible()) {
+            setVisible(true);
+            owner.add(this, "dock west");
+            owner.revalidate();
+            owner.repaint();
+            SwingUtilities.invokeLater(this::subscribes);
+        } else if(!shouldBeVisible && isVisible()) {
+            setVisible(false);
+            owner.remove(this);
+            owner.revalidate();
+            owner.repaint();
+        }
     }
 
     @Override
