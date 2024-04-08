@@ -31,9 +31,11 @@ public class UserModel {
     private BehaviorSubject<Collection<Address>> addresses;
 
     public UserModel() {
-        addressesList.add(
-                new Address("Your mama", "099392029", "lkjsdkljfa", UUID.randomUUID().toString())
-        );
+        for(int i=0; i < 100; i++ ) {
+            addressesList.add(
+                    new Address("Your mama", "099392029", "lkjsdkljfa", UUID.randomUUID().toString())
+            );
+        }
         mainAddress = BehaviorSubject.createDefault(addressesList.get(0));
         addresses = BehaviorSubject.createDefault(addressesList);
     }

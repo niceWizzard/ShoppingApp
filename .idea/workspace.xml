@@ -9,9 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Centered the frame and dialogs to the screen">
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Made sidebar disappear when on ManageAddressPage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/listview/DynamicListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/models/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +333,39 @@
       <option name="project" value="LOCAL" />
       <updated>1712534811050</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Changed the public behaviorsubjkects to observables">
+      <option name="closed" value="true" />
+      <created>1712547426710</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1712547426710</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added observable for addresses">
+      <option name="closed" value="true" />
+      <created>1712547537520</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1712547537520</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added Manage Address Page">
+      <option name="closed" value="true" />
+      <created>1712548206875</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1712548206875</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Made sidebar disappear when on ManageAddressPage">
+      <option name="closed" value="true" />
+      <created>1712548219036</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1712548219036</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,8 +383,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Init" />
-    <MESSAGE value="Added Pages" />
     <MESSAGE value="Added Products to Homepage" />
     <MESSAGE value="Made the CartService and added id field to ProductItemModel" />
     <MESSAGE value="Made cart sidebar link have number" />
@@ -370,7 +404,11 @@
     <MESSAGE value="Added clear cart button" />
     <MESSAGE value="Added way to edit username" />
     <MESSAGE value="Centered the frame and dialogs to the screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Centered the frame and dialogs to the screen" />
+    <MESSAGE value="Changed the public behaviorsubjkects to observables" />
+    <MESSAGE value="Added observable for addresses" />
+    <MESSAGE value="Added Manage Address Page" />
+    <MESSAGE value="Made sidebar disappear when on ManageAddressPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made sidebar disappear when on ManageAddressPage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
