@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added actual CheckoutHistory">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CheckoutModal.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Removed default checkout history">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/CheckoutHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/CheckoutHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CheckoutModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CheckoutModal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +123,7 @@
       <workItem from="1712551605204" duration="3363000" />
       <workItem from="1712558118181" duration="3140000" />
       <workItem from="1712564844546" duration="3798000" />
-      <workItem from="1712571227141" duration="3105000" />
+      <workItem from="1712571227141" duration="3475000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -464,7 +461,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712576656075</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Made checkout button add to CheckoutHistory">
+      <option name="closed" value="true" />
+      <created>1712578193588</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1712578193588</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Removed default checkout history">
+      <option name="closed" value="true" />
+      <created>1712578295956</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1712578295956</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,8 +495,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed the clear button bg color of CartItem" />
-    <MESSAGE value="Added non functional checkout button" />
     <MESSAGE value="Added non functional profile page" />
     <MESSAGE value="Changed project to zulu-17 jdk" />
     <MESSAGE value="Used the custom DynamicListView to show the cart contents" />
@@ -507,7 +518,9 @@
     <MESSAGE value="Made mainAddress changeable" />
     <MESSAGE value="Merged observables for the mainAddress change and listenForChange" />
     <MESSAGE value="Added actual CheckoutHistory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added actual CheckoutHistory" />
+    <MESSAGE value="Made checkout button add to CheckoutHistory" />
+    <MESSAGE value="Removed default checkout history" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed default checkout history" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

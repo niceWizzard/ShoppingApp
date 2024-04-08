@@ -47,6 +47,13 @@ public class CheckoutModal extends JDialog {
                 new Item<>(new JLabel("You have no checkouts."), Optional.empty()),
                 new MigLayout("wrap", "grow")
         );
+        var header = new JPanel(new MigLayout("", "grow"));
+        header.add(new JLabel("Total"), "grow, al left");
+        var totalPriceLabel = new JLabel(String.valueOf(model.totalPrice()));
+        totalPriceLabel.setFont(FontSize.x16b);
+        header.add(totalPriceLabel, "al right, wrap");
+
+        add(header, "dock north, grow");
         var scroll = new JScrollPane(listView);
         add(scroll, "grow, wrap");
 
