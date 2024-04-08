@@ -34,7 +34,7 @@ public class ManageAddressPage extends Routeable {
                 return new Item<>(view, Optional.of("grow, align center"));
             },
             new Item<>(new JLabel("Empty addresses"), Optional.of("align center")),
-            new MigLayout("wrap, gapy 6", "grow")
+            new MigLayout("wrap, gapy 6, height 480::", "grow")
     );
 
     public class AddressPanel extends JPanel {
@@ -93,7 +93,7 @@ public class ManageAddressPage extends Routeable {
     }
 
     public ManageAddressPage() {
-        setLayout(new MigLayout("", "grow"));
+        setLayout(new MigLayout("", "grow", "grow"));
 
         this.subscription = UserService.getInstance().getCurrentUser().getAddresses().subscribe(v -> {
             addressDynamicListView.update();
