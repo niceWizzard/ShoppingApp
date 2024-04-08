@@ -1,7 +1,9 @@
 package org.nice.pages.profile;
 
 import com.formdev.flatlaf.ui.FlatRoundBorder;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.subjects.BehaviorSubject;
 import net.miginfocom.swing.MigLayout;
 import org.nice.Main;
 import org.nice.constants.FontSize;
@@ -152,7 +154,12 @@ class AddressPanel extends  JPanel{
         add(phoneNumber);
         add(address);
 
-        subscription = AddressService.getInstance().getMainAddressObservable().subscribe(
+        subscription = AddressService.getInstance().getMainAddressObservable().flatMap(main -> Observable.merge(
+                Observable.wrap(BehaviorSubject.createDefault(main)),
+                AddressService.getInstance().listenForChanges(main.id())
+        )
+        )
+        .subscribe(
                 v -> {
                     name.setText(v.name());
                     phoneNumber.setText(v.phoneNumber());

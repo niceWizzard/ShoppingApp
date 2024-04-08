@@ -20,7 +20,7 @@ public class AddressService {
         instance = this;
         for(int i=0; i < 5; i++ ) {
             addressesList.add(
-                    new Address("Your mama", "099392029", "lkjsdkljfa", UUID.randomUUID().toString())
+                    new Address("Your mama", "09493264521", "lkjsdkljfa", UUID.randomUUID().toString())
             );
         }
         mainAddress = BehaviorSubject.createDefault(addressesList.get(0));
