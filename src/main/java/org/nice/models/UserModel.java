@@ -30,6 +30,11 @@ public class UserModel {
     private BehaviorSubject<Address> mainAddress;
     private BehaviorSubject<Collection<Address>> addresses;
 
+    public void removeAddress(String id) {
+        addressesList.removeIf(v -> v.id().equals(id));
+        addresses.onNext(addressesList);
+    }
+
     public UserModel() {
         for(int i=0; i < 100; i++ ) {
             addressesList.add(
