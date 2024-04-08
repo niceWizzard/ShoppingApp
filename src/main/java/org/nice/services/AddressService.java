@@ -18,11 +18,9 @@ public class AddressService {
     }
     public AddressService() {
         instance = this;
-        for(int i=0; i < 5; i++ ) {
             addressesList.add(
-                    new Address("Your mama", "09493264521", "lkjsdkljfa", UUID.randomUUID().toString())
+                    new Address("Default name", "09123456789", "Default address, at 2nd Address", UUID.randomUUID().toString())
             );
-        }
         mainAddress = BehaviorSubject.createDefault(addressesList.get(0));
         addresses = BehaviorSubject.createDefault(addressesList);
     }
