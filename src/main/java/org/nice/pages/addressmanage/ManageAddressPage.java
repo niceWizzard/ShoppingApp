@@ -15,6 +15,7 @@ import org.nice.services.UserService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -38,9 +39,10 @@ public class ManageAddressPage extends Routeable {
             new MigLayout("wrap, gapy 6, height 480::", "grow")
     );
 
-    public class AddressPanel extends JPanel {
+    public static class AddressPanel extends JPanel {
 
         private final Disposable subscription;
+        private Address item;
 
         @Override
         public void removeNotify() {
@@ -48,7 +50,8 @@ public class ManageAddressPage extends Routeable {
             subscription.dispose();
         }
 
-        public AddressPanel(Address item) {
+        public AddressPanel(Address givenAddress) {
+            this.item = givenAddress;
             setLayout(new MigLayout("insets 12", "[][grow]"));
             setMaximumSize(new Dimension(360, 360));
             setBorder(new FlatRoundBorder());
@@ -56,9 +59,9 @@ public class ManageAddressPage extends Routeable {
             var nameLabel = new JLabel("Name: ");
             var phoneLabel = new JLabel("Phone: ");
             var addressLabel = new JLabel("Address");
-            var nameField = new JLabel(item.name());
-            var phoneField = new JLabel(item.phoneNumber());
-            var addressField = new JLabel(item.address());
+            var nameField = new JLabel(givenAddress.name());
+            var phoneField = new JLabel(givenAddress.phoneNumber());
+            var addressField = new JLabel(givenAddress.address());
             add(nameLabel);
             add(nameField,"wrap");
             add(phoneLabel);
@@ -66,12 +69,11 @@ public class ManageAddressPage extends Routeable {
             add(addressLabel);
             add(addressField, "wrap");
 
-            this.subscription = AddressService.getInstance().getOnAddressUpdated().subscribe(v -> {
-                if(v.id().equals(item.id())) {
-                    nameField.setText(v.name());
-                    phoneField.setText(v.phoneNumber());
-                    addressField.setText(v.address());
-                }
+            this.subscription = AddressService.getInstance().listenForChanges(givenAddress.id()).subscribe(v -> {
+                nameField.setText(v.name());
+                phoneField.setText(v.phoneNumber());
+                addressField.setText(v.address());
+                this.item = v;
             });
 
             var buttonContainer = new JPanel(new MigLayout("align right", ""));
@@ -82,11 +84,11 @@ public class ManageAddressPage extends Routeable {
             add(buttonContainer, "align right, grow,dock south");
 
             editBtn.addActionListener(v -> {
-                new CreateAddressModal(Optional.of(item));
+                new CreateAddressModal(Optional.of(this.item));
             });
 
             deleteButton.addActionListener(v -> {
-                AddressService.getInstance().removeAddress(item.id());
+                AddressService.getInstance().removeAddress(givenAddress.id());
             });
 
             Arrays.stream(getComponents()).filter(v -> !(v instanceof JButton)).forEach(v -> v.setFont(FontSize.x16));

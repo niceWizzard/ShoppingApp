@@ -53,6 +53,9 @@ public class AddressService {
 
     private final Subject<Address> onAddressUpdated = PublishSubject.create();
 
+    public Observable<Address> listenForChanges(String id) {
+        return onAddressUpdated.filter(v -> v.id().equals(id));
+    }
 
 
     public void removeAddress(String id) {

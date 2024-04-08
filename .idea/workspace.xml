@@ -9,15 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Made the AddressViewList to not shrink">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/AddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/models/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/CreateAddressModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/CreateAddressModal.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Moved the Address to its own service and added more info popup for CreateAddressModal">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/AddressService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +122,7 @@
       <workItem from="1712527685163" duration="7294000" />
       <workItem from="1712551605204" duration="3363000" />
       <workItem from="1712558118181" duration="3140000" />
-      <workItem from="1712564844546" duration="1163000" />
+      <workItem from="1712564844546" duration="1495000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -426,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712561097298</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Moved the Address to its own service and added more info popup for CreateAddressModal">
+      <option name="closed" value="true" />
+      <created>1712566114530</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1712566114530</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +446,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added clearBtn, totalPrice of item, and confirmation for clearing" />
     <MESSAGE value="Added subscription disposing" />
     <MESSAGE value="Changed the look of some components" />
     <MESSAGE value="Made the sidebar links change color when active" />
@@ -469,7 +470,8 @@
     <MESSAGE value="added way to edit the addresses (currently only the name)" />
     <MESSAGE value="Added CreateAddressModal" />
     <MESSAGE value="Made the AddressViewList to not shrink" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the AddressViewList to not shrink" />
+    <MESSAGE value="Moved the Address to its own service and added more info popup for CreateAddressModal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved the Address to its own service and added more info popup for CreateAddressModal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
