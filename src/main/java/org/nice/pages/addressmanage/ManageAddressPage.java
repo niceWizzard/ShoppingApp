@@ -1,6 +1,7 @@
 package org.nice.pages.addressmanage;
 
 import com.formdev.flatlaf.ui.FlatRoundBorder;
+import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.Main;
 import org.nice.constants.FontSize;
@@ -17,45 +18,73 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class ManageAddressPage extends Routeable {
-    private DynamicListView<Address> addressDynamicListView = new DynamicListView<>(
+    public DynamicListView<Address> addressDynamicListView = new DynamicListView<>(
             UserService.getInstance().getCurrentUser().getAddressCollection(),
             Address::id,
             (item) -> {
-                var view = new JPanel(new MigLayout("insets 12", "[][grow]"));
-                view.setMaximumSize(new Dimension(360, 360));
-                view.setBorder(new FlatRoundBorder());
-
-                var nameLabel = new JLabel("Name: ");
-                var phoneLabel = new JLabel("Phone: ");
-                var addressLabel = new JLabel("Address");
-                view.add(nameLabel);
-                view.add(new JLabel(item.name()),"wrap");
-                view.add(phoneLabel);
-                view.add(new JLabel(item.phoneNumber()),"wrap");
-                view.add(addressLabel);
-                view.add(new JLabel(item.address()), "wrap");
-
-                var buttonContainer = new JPanel(new MigLayout("align right", ""));
-                var editBtn = new JButton("Edit");
-                var deleteButton = new JButton("Remove");
-                buttonContainer.add(editBtn, "align right");
-                buttonContainer.add(deleteButton, "align right");
-                view.add(buttonContainer, "align right, grow,dock south");
-
-                deleteButton.addActionListener(v -> {
-                    UserService.getInstance().getCurrentUser().removeAddress(item.id());
-                    this.updateList();
-                });
-
-                Arrays.stream(view.getComponents()).filter(v -> !(v instanceof JButton)).forEach(v -> v.setFont(FontSize.x16));
+                var view = new AddressPanel(item);
                 return new Item<>(view, Optional.of("grow, align center"));
             },
             new Item<>(new JLabel("Empty addresses"), Optional.of("align center")),
             new MigLayout("wrap, gapy 6", "grow")
     );
 
-    private void updateList() {
-        addressDynamicListView.update();
+    public class AddressPanel extends JPanel {
+
+        private final Disposable subscription;
+
+        @Override
+        public void removeNotify() {
+            super.removeNotify();
+            subscription.dispose();
+        }
+
+        public AddressPanel(Address item) {
+            setLayout(new MigLayout("insets 12", "[][grow]"));
+            setMaximumSize(new Dimension(360, 360));
+            setBorder(new FlatRoundBorder());
+
+            var nameLabel = new JLabel("Name: ");
+            var phoneLabel = new JLabel("Phone: ");
+            var addressLabel = new JLabel("Address");
+            var nameField = new JLabel(item.name());
+            var phoneField = new JLabel(item.phoneNumber());
+            var addressField = new JLabel(item.address());
+            add(nameLabel);
+            add(nameField,"wrap");
+            add(phoneLabel);
+            add(phoneField,"wrap");
+            add(addressLabel);
+            add(addressField, "wrap");
+
+            this.subscription = UserService.getInstance().getCurrentUser().getOnAddressUpdated().subscribe(v -> {
+                if(v.id().equals(item.id())) {
+                    nameField.setText(v.name());
+                    phoneField.setText(v.phoneNumber());
+                    addressField.setText(v.address());
+                }
+            });
+
+            var buttonContainer = new JPanel(new MigLayout("align right", ""));
+            var editBtn = new JButton("Edit");
+            var deleteButton = new JButton("Remove");
+            buttonContainer.add(editBtn, "align right");
+            buttonContainer.add(deleteButton, "align right");
+            add(buttonContainer, "align right, grow,dock south");
+
+            editBtn.addActionListener(v -> {
+                var name = JOptionPane.showInputDialog(Main.frame, "New name: ");
+                var newAddress = new Address(name, item.phoneNumber(),item.address(), item.id());
+                UserService.getInstance().getCurrentUser().updateAddress(newAddress);
+            });
+
+            deleteButton.addActionListener(v -> {
+                UserService.getInstance().getCurrentUser().removeAddress(item.id());
+                addressDynamicListView.update();
+            });
+
+            Arrays.stream(getComponents()).filter(v -> !(v instanceof JButton)).forEach(v -> v.setFont(FontSize.x16));
+        }
     }
 
     public ManageAddressPage() {

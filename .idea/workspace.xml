@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added address list to Manage Address page">
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added way to remove addresses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/models/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/UserModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" afterDir="false" />
@@ -121,7 +121,7 @@
       <workItem from="1712497583574" duration="202000" />
       <workItem from="1712499163200" duration="3493000" />
       <workItem from="1712527685163" duration="7294000" />
-      <workItem from="1712551605204" duration="2208000" />
+      <workItem from="1712551605204" duration="3307000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -387,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712549503995</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added way to remove addresses">
+      <option name="closed" value="true" />
+      <created>1712553885817</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1712553885817</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added ability to add quantity to each products" />
     <MESSAGE value="Made the remove function actually work" />
     <MESSAGE value="Add buttons to change the item quantity" />
     <MESSAGE value="Fixed the totalPrice not updating" />
@@ -430,7 +437,8 @@
     <MESSAGE value="Made the CartContent create its own jscrollpane" />
     <MESSAGE value="Removed the JScrollPane of the dynamic listview. The parent should create it manually" />
     <MESSAGE value="Added address list to Manage Address page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added address list to Manage Address page" />
+    <MESSAGE value="Added way to remove addresses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added way to remove addresses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

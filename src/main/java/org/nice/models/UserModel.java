@@ -2,6 +2,8 @@ package org.nice.models;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
+import io.reactivex.rxjava3.subjects.PublishSubject;
+import io.reactivex.rxjava3.subjects.Subject;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,9 +32,30 @@ public class UserModel {
     private BehaviorSubject<Address> mainAddress;
     private BehaviorSubject<Collection<Address>> addresses;
 
+    public Observable<Address> getOnAddressUpdated() {
+        return onAddressUpdated;
+    }
+
+    private final Subject<Address> onAddressUpdated = PublishSubject.create();
+
+
+
     public void removeAddress(String id) {
         addressesList.removeIf(v -> v.id().equals(id));
         addresses.onNext(addressesList);
+    }
+
+    public void updateAddress(Address add) {
+        var i = 0;
+        for(var a : addressesList) {
+            if(add.id().equals(a.id())) {
+                break;
+            }
+            i++;
+        }
+        addressesList.set(i, add);
+        addresses.onNext(addressesList);
+        onAddressUpdated.onNext(add);
     }
 
     public UserModel() {
