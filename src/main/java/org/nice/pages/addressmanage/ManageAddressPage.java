@@ -18,6 +18,14 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class ManageAddressPage extends Routeable {
+    private final Disposable subscription;
+
+    @Override
+    public void removeNotify() {
+        super.removeNotify();
+        subscription.dispose();
+    }
+
     public DynamicListView<Address> addressDynamicListView = new DynamicListView<>(
             UserService.getInstance().getCurrentUser().getAddressCollection(),
             Address::id,
@@ -73,14 +81,11 @@ public class ManageAddressPage extends Routeable {
             add(buttonContainer, "align right, grow,dock south");
 
             editBtn.addActionListener(v -> {
-                var name = JOptionPane.showInputDialog(Main.frame, "New name: ");
-                var newAddress = new Address(name, item.phoneNumber(),item.address(), item.id());
-                UserService.getInstance().getCurrentUser().updateAddress(newAddress);
+                new CreateAddressModal(Optional.of(item));
             });
 
             deleteButton.addActionListener(v -> {
                 UserService.getInstance().getCurrentUser().removeAddress(item.id());
-                addressDynamicListView.update();
             });
 
             Arrays.stream(getComponents()).filter(v -> !(v instanceof JButton)).forEach(v -> v.setFont(FontSize.x16));
@@ -89,14 +94,28 @@ public class ManageAddressPage extends Routeable {
 
     public ManageAddressPage() {
         setLayout(new MigLayout("", "grow"));
-        var header = new JPanel(new MigLayout());
+
+        this.subscription = UserService.getInstance().getCurrentUser().getAddresses().subscribe(v -> {
+            addressDynamicListView.update();
+        });
+
+        var header = new JPanel(new MigLayout("", "grow"));
         var backBtn = new JButton("Back");
         backBtn.addActionListener(v -> {
             NavigationService.getInstance().nav.navigateTo(Main.NAV_PROFILE);
         });
+
         header.add(backBtn, "align left");
         var title = new JLabel("Your addresses");
         header.add(title, "grow");
+
+        var addBtn = new JButton("Add new address");
+        header.add(addBtn, "align right");
+
+        addBtn.addActionListener(e -> {
+            new CreateAddressModal(Optional.empty());
+        });
+
         add(header, "dock north");
 
         var scrollPane = new JScrollPane(addressDynamicListView);

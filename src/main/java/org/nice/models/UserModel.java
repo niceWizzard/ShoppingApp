@@ -30,6 +30,11 @@ public class UserModel {
 
     private final BehaviorSubject<String> username = BehaviorSubject.createDefault("Username");
     private BehaviorSubject<Address> mainAddress;
+
+    public Observable<Collection<Address>> getAddresses() {
+        return addresses;
+    }
+
     private BehaviorSubject<Collection<Address>> addresses;
 
     public Observable<Address> getOnAddressUpdated() {
@@ -58,8 +63,16 @@ public class UserModel {
         onAddressUpdated.onNext(add);
     }
 
+    public void addAddress(Address address) {
+        var alreadyExists = addressesList.stream().filter(v -> v.id().equals(address.id()));
+        if(alreadyExists.findAny().isEmpty()) {
+            addressesList.add(address);
+            addresses.onNext(addressesList);
+        }
+    }
+
     public UserModel() {
-        for(int i=0; i < 100; i++ ) {
+        for(int i=0; i < 5; i++ ) {
             addressesList.add(
                     new Address("Your mama", "099392029", "lkjsdkljfa", UUID.randomUUID().toString())
             );
