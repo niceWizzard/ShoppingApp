@@ -3,6 +3,7 @@ package org.nice.pages.cart;
 import com.formdev.flatlaf.ui.FlatDropShadowBorder;
 import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
+import org.nice.Main;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
 import org.nice.navigation.Routeable;
@@ -50,7 +51,7 @@ public class CartPage extends Routeable {
 
         clearAllBtn = new JButton("Clear All");
         clearAllBtn.addActionListener(e -> {
-            var r = JOptionPane.showConfirmDialog(null, "Are you sure you want to empty your cart?", "Confirm",JOptionPane.YES_NO_OPTION);
+            var r = JOptionPane.showConfirmDialog(Main.frame, "Are you sure you want to empty your cart?", "Confirm",JOptionPane.YES_NO_OPTION);
             if(r == 0  ) {
                 CartService.getInstance().clearAll();
             }

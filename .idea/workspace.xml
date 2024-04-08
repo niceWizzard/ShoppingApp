@@ -9,14 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added clear cart button">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/CustomDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/UserModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" afterDir="false" />
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Added way to edit username">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +118,7 @@
       <workItem from="1712496384201" duration="553000" />
       <workItem from="1712497583574" duration="202000" />
       <workItem from="1712499163200" duration="3493000" />
-      <workItem from="1712527685163" duration="6722000" />
+      <workItem from="1712527685163" duration="6781000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -310,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712528243415</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added way to edit username">
+      <option name="closed" value="true" />
+      <created>1712534437483</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1712534437483</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +351,8 @@
     <MESSAGE value="Used the custom DynamicListView to show the cart contents" />
     <MESSAGE value="Fixed root/parenting issue of the ListView" />
     <MESSAGE value="Added clear cart button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added clear cart button" />
+    <MESSAGE value="Added way to edit username" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added way to edit username" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

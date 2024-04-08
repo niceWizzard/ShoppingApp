@@ -1,13 +1,11 @@
 package org.nice.pages.profile;
 
-import com.formdev.flatlaf.ui.FlatLineBorder;
 import com.formdev.flatlaf.ui.FlatRoundBorder;
 import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
-import org.nice.CustomDialog;
+import org.nice.Main;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
-import org.nice.models.Address;
 import org.nice.navigation.Routeable;
 import org.nice.services.UserService;
 
@@ -74,7 +72,7 @@ public class ProfilePage extends Routeable {
     private  JButton getUsernameBtn() {
         var editUsernameBtn = new JButton("Edit");
         editUsernameBtn.addActionListener(v -> {
-            var dialog = new JDialog((JFrame) null, "Edit username", Dialog.ModalityType.APPLICATION_MODAL);
+            var dialog = new JDialog(Main.frame, "Edit username", Dialog.ModalityType.APPLICATION_MODAL);
             var root = new JPanel(new MigLayout("wrap, insets 24", "grow"));
             dialog.getContentPane().add(root);
             var label = new JLabel("New username: ");
@@ -88,7 +86,7 @@ public class ProfilePage extends Routeable {
                 var text = input.getText();
                 var matcher = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_]*[a-zA-Z0-9]$");
                 if(!matcher.matcher(text).find()) {
-                    JOptionPane.showMessageDialog(null, "Username can only contain letters, digits, _ (Must start with letter and cannot end in _)");
+                    JOptionPane.showMessageDialog(Main.frame, "Username can only contain letters, digits, _ (Must start with letter and cannot end in _)");
                     return;
                 }
                 UserService.getInstance().setUsername(text);
@@ -98,8 +96,8 @@ public class ProfilePage extends Routeable {
 
             dialog.setSize(240,180);
             dialog.setResizable(false);
+            dialog.setLocationRelativeTo(Main.frame);
             dialog.setVisible(true);
-            dialog.setLocationRelativeTo(null);
             dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         });

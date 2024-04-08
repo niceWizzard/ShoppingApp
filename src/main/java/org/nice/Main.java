@@ -18,6 +18,8 @@ import java.awt.*;
 public class Main extends JFrame {
     public static NavigationPanel navigation;
 
+    public static JFrame frame;
+
     public static final String NAV_HOME = "home";
     public static final String NAV_PROFILE = "profile";
     public static final String NAV_CART = "cart";
@@ -31,6 +33,7 @@ public class Main extends JFrame {
     }
 
     private void init() {
+        frame = this;
         FlatMacLightLaf.setup();
         var s = new ServiceManager();
         var root=new JPanel(new MigLayout());
@@ -40,6 +43,8 @@ public class Main extends JFrame {
 
         setSize(new Dimension(1080, 720));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setExtendedState(Frame.MAXIMIZED_BOTH);
         setVisible(true);
     }
 

@@ -3,6 +3,7 @@ package org.nice.pages.cart;
 import com.formdev.flatlaf.ui.FlatLineBorder;
 import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
+import org.nice.Main;
 import org.nice.components.MainButton;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
@@ -84,7 +85,7 @@ class CartItem extends JPanel{
 
     private boolean clearConfirmation() {
         return JOptionPane.showConfirmDialog(
-                null,
+                Main.frame,
                 "Are you sure you want to clear the item: " +model.title(),
                 "Confirm",
                 JOptionPane.YES_NO_OPTION
