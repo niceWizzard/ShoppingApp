@@ -1,6 +1,7 @@
 package org.nice.pages.profile;
 
 import com.formdev.flatlaf.ui.FlatRoundBorder;
+import io.reactivex.rxjava3.disposables.Disposable;
 import net.miginfocom.swing.MigLayout;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
@@ -14,6 +15,14 @@ import java.awt.*;
 import java.util.Optional;
 
 public class CheckoutHistory extends JPanel {
+    private final Disposable subscription;
+
+    @Override
+    public void removeNotify() {
+        super.removeNotify();
+        subscription.dispose();
+    }
+
     private DynamicListView<CheckoutModel> listView = new DynamicListView<>(
             CheckoutService.getInstance().getCheckoutList(),
             CheckoutModel::id,
@@ -42,7 +51,7 @@ public class CheckoutHistory extends JPanel {
             new MigLayout("wrap", "grow")
     );
     public CheckoutHistory() {
-        setLayout(new MigLayout("debug", "grow", "grow"));
+        setLayout(new MigLayout("", "grow", "grow"));
         final var title = new JLabel("Your checkout history");
         title.setFont(FontSize.x16b);
         title.setBorder(
@@ -59,6 +68,10 @@ public class CheckoutHistory extends JPanel {
         scroll.setPreferredSize(new Dimension(720,720));
         scroll.setBorder(null);
         add(scroll, "grow");
+
+        this.subscription = CheckoutService.getInstance().getCheckoutHistory().subscribe(v -> {
+            listView.update();
+        });
 
     }
 }

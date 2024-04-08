@@ -6,14 +6,18 @@ import net.miginfocom.swing.MigLayout;
 import org.nice.Main;
 import org.nice.constants.FontSize;
 import org.nice.constants.Padding;
+import org.nice.models.CheckoutModel;
 import org.nice.navigation.Routeable;
 import org.nice.services.CartService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Date;
+import java.util.UUID;
 
 public class CartPage extends Routeable {
     private final Disposable subscription;
+    private float totalPrice;
     private JLabel cartTotal;
     private JButton checkoutButton;
     private JButton clearAllBtn;
@@ -30,7 +34,7 @@ public class CartPage extends Routeable {
             var values = cartList.values();
             checkoutButton.setEnabled(!values.isEmpty());
             clearAllBtn.setVisible(!values.isEmpty());
-            var totalPrice = 0f;
+            totalPrice = 0f;
             for(var p : values) {
                 totalPrice += p.getTotalPrice();
             }
@@ -81,7 +85,7 @@ public class CartPage extends Routeable {
         cartTotal = new JLabel("Total: P0.0");
         southContainer.add(cartTotal, "al right, grow 0");
 
-        checkoutButton = new JButton("CheckoutModel");
+        checkoutButton = new JButton("Checkout");
         checkoutButton.setBorder(
                 BorderFactory.createCompoundBorder(
                         checkoutButton.getBorder(),
@@ -100,6 +104,16 @@ public class CartPage extends Routeable {
         );
         southContainer.add(checkoutButton, "al right");
         add(southContainer, "dock south");
+        checkoutButton.addActionListener(e -> {
+            new CheckoutModal(
+                    new CheckoutModel(
+                            CartService.getInstance().getItemMap().values(),
+                            totalPrice,
+                            new Date(),
+                            UUID.randomUUID().toString()
+                    )
+            );
+        });
     }
 
     @Override

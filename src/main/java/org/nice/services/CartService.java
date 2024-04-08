@@ -15,6 +15,11 @@ public class CartService {
     private BehaviorSubject<Map<String,ProductItemModel>> cartItemsMap =
             BehaviorSubject
                     .createDefault(new HashMap<>());
+
+    public Map<String, ProductItemModel> getItemMap() {
+        return itemMap;
+    }
+
     private final Map<String,ProductItemModel> itemMap = cartItemsMap.getValue();
 
     public Observable<Map<String,ProductItemModel>> getCartObservable() {
