@@ -42,13 +42,6 @@ public class CheckoutService {
 
     public CheckoutService() {
         instance = this;
-        checkoutList.add(new CheckoutModel(List.of(new ProductItemModel[]{
-                new ProductItemModel("Nice", 2, 120, "crocs.jpg", "lkDkml2k3dmd")
-        }),
-                140.0f,
-                new Date(),
-                "kldssfdi2lksdME"
-        ));
     }
 
 
