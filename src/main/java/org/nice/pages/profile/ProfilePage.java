@@ -46,7 +46,7 @@ public class ProfilePage extends Routeable {
         username.setFont(FontSize.x24b);
         subscription = UserService.getInstance().getCurrentUser().getUsername().subscribe(username::setText);
 
-        var editUsernameBtn = getUsernameBtn();
+        var editUsernameBtn = getUsernameBtn(username);
         usernameContainer.add(username, "align left,  grow");
         usernameContainer.add(editUsernameBtn, "align right, wrap, shrink");
 
@@ -69,15 +69,17 @@ public class ProfilePage extends Routeable {
 
     }
 
-    private  JButton getUsernameBtn() {
+    private  JButton getUsernameBtn(JLabel username) {
         var editUsernameBtn = new JButton("Edit");
         editUsernameBtn.addActionListener(v -> {
             var dialog = new JDialog(Main.frame, "Edit username", Dialog.ModalityType.APPLICATION_MODAL);
             var root = new JPanel(new MigLayout("wrap, insets 24", "grow"));
             dialog.getContentPane().add(root);
             var label = new JLabel("New username: ");
-            var input = new JTextField();
-            var submitBtn = new JButton("Update");
+            var input = new JTextField(username.getText());
+            var submitBtn = new JButton("Save");
+
+
             root.add(label, "grow");
             root.add(input, "grow");
             root.add(submitBtn, "grow");
