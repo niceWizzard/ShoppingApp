@@ -18,9 +18,6 @@ public class DynamicListView<T> extends JPanel {
     private final Item<JComponent> defaultView;
     private LayoutManager providedLayout;
 
-    public  JScrollPane scrollPane;
-
-
     /**
      * Must be called everytime the provided list changes to reflect the change in the ui as well.
      */
@@ -76,7 +73,6 @@ public class DynamicListView<T> extends JPanel {
         this.keyBuilder = keyBuilder;
         this.viewBuilder = viewBuilder;
 
-        scrollPane = new JScrollPane(this);
         init();
     }
 
@@ -94,7 +90,6 @@ public class DynamicListView<T> extends JPanel {
         this.viewBuilder = viewBuilder;
 
         this.setLayout(this.providedLayout);
-        scrollPane = new JScrollPane(this);
         init();
     }
 
