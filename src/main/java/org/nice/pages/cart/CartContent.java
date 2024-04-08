@@ -21,7 +21,7 @@ public class CartContent extends JPanel {
     private final ArrayList<ProductItemModel> items = new ArrayList<>();
     private final Disposable subscription;
 
-    private final DynamicListView<ProductItemModel> listView = new DynamicListView<>(
+    public final DynamicListView<ProductItemModel> listView = new DynamicListView<>(
             items,
             ProductItemModel::id,
             (item) -> {
@@ -43,10 +43,10 @@ public class CartContent extends JPanel {
     }
 
     public CartContent() {
-        setLayout(new MigLayout("", "grow, shrink"));
-        add(listView,"grow");
+        setLayout(new MigLayout("", "grow", "grow"));
+        var scrollPane = new JScrollPane(listView);
+        add(scrollPane,"grow");
         subscription = CartService.getInstance ().getCartObservable().subscribe(list -> {
-
             items.clear();
             items.addAll(list.values());
             listView.update();

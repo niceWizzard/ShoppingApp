@@ -73,10 +73,8 @@ public class CartPage extends Routeable {
 
         add(upperContainer, "north, grow, wrap");
 
-        var scrollPane = new JScrollPane(new CartContent());
-        scrollPane.setBorder(null);
-        scrollPane.setPreferredSize(new Dimension(1080,1080));
-        add(scrollPane, "grow");
+
+        add(new CartContent(), "grow, dock center");
 
         var southContainer = new JPanel(new MigLayout("align right center", ""));
 
