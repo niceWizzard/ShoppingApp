@@ -1,5 +1,6 @@
 package org.nice.models;
 
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
 
 import java.util.ArrayList;
@@ -8,11 +9,11 @@ import java.util.UUID;
 public class UserModel {
     private final ArrayList<Address> addresses = new ArrayList<>();
 
-    public BehaviorSubject<Address> getMainAddress() {
+    public Observable<Address> getMainAddress() {
         return mainAddress;
     }
 
-    public BehaviorSubject<String> getUsername() {
+    public Observable<String> getUsername() {
         return username;
     }
 
