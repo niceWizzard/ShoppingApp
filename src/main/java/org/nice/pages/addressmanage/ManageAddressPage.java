@@ -75,6 +75,7 @@ public class ManageAddressPage extends Routeable {
                 nameField.setText(v.name());
                 phoneField.setText(v.phoneNumber());
                 addressField.setText(v.address());
+
                 this.item = v;
             });
 
@@ -102,7 +103,9 @@ public class ManageAddressPage extends Routeable {
             });
 
             this.subscription2 = AddressService.getInstance().getMainAddressObservable().subscribe(v -> {
-                assignBtn.setEnabled(!v.id().equals(this.item.id()));
+                var isMainAddress = !v.id().equals(this.item.id());
+                assignBtn.setEnabled(isMainAddress);
+                deleteButton.setEnabled(isMainAddress);
             });
 
             Arrays.stream(getComponents()).filter(v -> !(v instanceof JButton)).forEach(v -> v.setFont(FontSize.x16));

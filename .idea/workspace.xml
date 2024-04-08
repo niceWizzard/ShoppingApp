@@ -9,10 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Made mainAddress changeable">
+    <list default="true" id="081fd762-f65a-4078-aad2-49639c17b3a8" name="Changes" comment="Merged observables for the mainAddress change and listenForChange">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/models/CheckoutModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/CheckoutService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/addressmanage/ManageAddressPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/cart/CartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/CheckoutHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/pages/profile/CheckoutHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nice/services/ServiceManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +127,8 @@
       <workItem from="1712527685163" duration="7294000" />
       <workItem from="1712551605204" duration="3363000" />
       <workItem from="1712558118181" duration="3140000" />
-      <workItem from="1712564844546" duration="3444000" />
+      <workItem from="1712564844546" duration="3798000" />
+      <workItem from="1712571227141" duration="1493000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -445,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712567249774</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Merged observables for the mainAddress change and listenForChange">
+      <option name="closed" value="true" />
+      <created>1712568403153</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1712568403153</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +476,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made the sidebar links change color when active" />
     <MESSAGE value="Changed Cart Pages botborder to drop shadow" />
     <MESSAGE value="Changed the clear button bg color of CartItem" />
     <MESSAGE value="Added non functional checkout button" />
@@ -488,7 +500,8 @@
     <MESSAGE value="Moved the Address to its own service and added more info popup for CreateAddressModal" />
     <MESSAGE value="Fixed the bug of edit not reflecting changes" />
     <MESSAGE value="Made mainAddress changeable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made mainAddress changeable" />
+    <MESSAGE value="Merged observables for the mainAddress change and listenForChange" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged observables for the mainAddress change and listenForChange" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -7,5 +7,6 @@ public class ServiceManager {
         new CartService();
         new UserService();
         new AddressService();
+        new CheckoutService();
     }
 }

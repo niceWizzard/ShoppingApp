@@ -81,7 +81,7 @@ public class CartPage extends Routeable {
         cartTotal = new JLabel("Total: P0.0");
         southContainer.add(cartTotal, "al right, grow 0");
 
-        checkoutButton = new JButton("Checkout");
+        checkoutButton = new JButton("CheckoutModel");
         checkoutButton.setBorder(
                 BorderFactory.createCompoundBorder(
                         checkoutButton.getBorder(),
